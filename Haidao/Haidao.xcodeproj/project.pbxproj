@@ -80,6 +80,9 @@
 		3BA421AF1D4B2EF600085054 /* ClassifyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA421AE1D4B2EF600085054 /* ClassifyCollectionViewCell.m */; };
 		3BA421B21D4B5F2C00085054 /* HomeSeleteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA421B11D4B5F2C00085054 /* HomeSeleteButton.m */; };
 		3BA421BA1D4B6AD300085054 /* StoreDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA421B91D4B6AD300085054 /* StoreDetailsViewController.m */; };
+		3BB4F1571D5C75E00066AE69 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4F1561D5C75E00066AE69 /* SearchViewController.m */; };
+		3BB4F15A1D5C75F00066AE69 /* PositionBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4F1591D5C75F00066AE69 /* PositionBtn.m */; };
+		3BB4F15D1D5C76CE0066AE69 /* FRPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4F15C1D5C76CE0066AE69 /* FRPlist.m */; };
 		3BB6F61D1D3A53F900B5D2B4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB6F61C1D3A53F900B5D2B4 /* libz.tbd */; };
 		3BB6F61F1D3A549900B5D2B4 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB6F61E1D3A549900B5D2B4 /* Reveal.framework */; };
 		3BC6488B1D51D2B300EF341B /* FilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6488A1D51D2B300EF341B /* FilterView.m */; };
@@ -298,6 +301,12 @@
 		3BA421B11D4B5F2C00085054 /* HomeSeleteButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeSeleteButton.m; sourceTree = "<group>"; };
 		3BA421B81D4B6AD300085054 /* StoreDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDetailsViewController.h; sourceTree = "<group>"; };
 		3BA421B91D4B6AD300085054 /* StoreDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDetailsViewController.m; sourceTree = "<group>"; };
+		3BB4F1551D5C75E00066AE69 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		3BB4F1561D5C75E00066AE69 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		3BB4F1581D5C75F00066AE69 /* PositionBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionBtn.h; sourceTree = "<group>"; };
+		3BB4F1591D5C75F00066AE69 /* PositionBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionBtn.m; sourceTree = "<group>"; };
+		3BB4F15B1D5C76CE0066AE69 /* FRPlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRPlist.h; sourceTree = "<group>"; };
+		3BB4F15C1D5C76CE0066AE69 /* FRPlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRPlist.m; sourceTree = "<group>"; };
 		3BB6F61C1D3A53F900B5D2B4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3BB6F61E1D3A549900B5D2B4 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		3BC648891D51D2B300EF341B /* FilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterView.h; sourceTree = "<group>"; };
@@ -458,6 +467,8 @@
 				3B7426641D5C6D3B002EE68A /* NearListViewController.m */,
 				3B7426541D5C16E9002EE68A /* NearBusinessViewController.h */,
 				3B7426551D5C16E9002EE68A /* NearBusinessViewController.m */,
+				3BB4F1551D5C75E00066AE69 /* SearchViewController.h */,
+				3BB4F1561D5C75E00066AE69 /* SearchViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -472,6 +483,8 @@
 		3B03AD7F1D5C0C0D00ABDFBB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3BB4F1581D5C75F00066AE69 /* PositionBtn.h */,
+				3BB4F1591D5C75F00066AE69 /* PositionBtn.m */,
 				3B03AD821D5C0C2900ABDFBB /* NearBusinessCell.h */,
 				3B03AD831D5C0C2900ABDFBB /* NearBusinessCell.m */,
 				3B74265A1D5C2331002EE68A /* BusinessTypeviewCell.h */,
@@ -981,6 +994,8 @@
 		3B8E79C41D2E445700142D77 /* Core(公共核心类) */ = {
 			isa = PBXGroup;
 			children = (
+				3BB4F15B1D5C76CE0066AE69 /* FRPlist.h */,
+				3BB4F15C1D5C76CE0066AE69 /* FRPlist.m */,
 			);
 			path = "Core(公共核心类)";
 			sourceTree = "<group>";
@@ -1619,6 +1634,7 @@
 			files = (
 				3BFC7D961D5866F900DA07AC /* SettingOrderViewController.m in Sources */,
 				3BFC7DA51D587EC600DA07AC /* MakeSureSettleAccountsView.m in Sources */,
+				3BB4F15A1D5C75F00066AE69 /* PositionBtn.m in Sources */,
 				3B152F5D1D379D4700CA76F6 /* ShoppingNum.m in Sources */,
 				3B0921CD1D38F6990047F8E3 /* RootTabBarViewController.m in Sources */,
 				3BC98CA01D50DB5200F80308 /* ExpendProfitsViewController.m in Sources */,
@@ -1648,6 +1664,7 @@
 				3B376C0C1D59B305000100BE /* StoreSettingViewController.m in Sources */,
 				3B5D5C3D1D48503A00878225 /* ShoppingCartHeaderView.m in Sources */,
 				3BC98CA71D50DB5200F80308 /* PresentListViewController.m in Sources */,
+				3BB4F15D1D5C76CE0066AE69 /* FRPlist.m in Sources */,
 				3BE8D6481D34D2F000FB782B /* RegisterViewController.m in Sources */,
 				3B376BFC1D597488000100BE /* RechargeTypeCell.m in Sources */,
 				3BC98CA21D50DB5200F80308 /* PunctualityProfitsViewController.m in Sources */,
@@ -1685,6 +1702,7 @@
 				3B0921CA1D38F5990047F8E3 /* RootNavigationController.m in Sources */,
 				3B74265F1D5C2A94002EE68A /* BusinessTypeButton.m in Sources */,
 				3B7426591D5C1778002EE68A /* NearBusinessCollectionViewCell.m in Sources */,
+				3BB4F1571D5C75E00066AE69 /* SearchViewController.m in Sources */,
 				3B8E7A281D2E445700142D77 /* FRTabBarItem.m in Sources */,
 				3B0F82C81D3B339D00D49372 /* CommodityBtn.m in Sources */,
 				3B376C041D598201000100BE /* MemberRecordViewController.m in Sources */,
