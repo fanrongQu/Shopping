@@ -20,6 +20,7 @@
 #import "RefundableMoneyViewController.h"
 #import "AccountsSettingViewController.h"
 #import "SettingViewController.h"
+#import "OrderManageViewController.h"
 #import "ShoppingOrderViewController.h"
 #import "HotboomViewController.h"
 #import "SettingOrderViewController.h"
@@ -190,7 +191,7 @@ static NSString * const collectionReusableViewHeaderID = @"MeCollectionReusableV
                 }
                     break;
                 case 1: {//订单管理
-                    
+                    [OrderManageViewController showOrderManageViewController:self];
                 }
                     break;
                 case 2: {//商家会员
@@ -217,7 +218,7 @@ static NSString * const collectionReusableViewHeaderID = @"MeCollectionReusableV
         switch (row) {
             case 0:{
                 //购物订单
-                [ShoppingOrderViewController showShoppingOrderViewController:self];
+                [OrderManageViewController showOrderManageViewController:self];
             }
                 break;
             case 1:{
@@ -230,6 +231,8 @@ static NSString * const collectionReusableViewHeaderID = @"MeCollectionReusableV
                 break;
         }
     }
+    
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
 
 

@@ -2,13 +2,13 @@
 //  ShoppingOrderViewController.h
 //  Haidao
 //
-//  Created by 1860 on 16/8/8.
+//  Created by 1860 on 16/8/13.
 //  Copyright © 2016年 FanrongQu. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "FRSlideMenuController.h"
 
-@interface ShoppingOrderViewController : BaseViewController
+@interface ShoppingOrderViewController : FRSlideMenuController
 
 + (void)showShoppingOrderViewController:(UIViewController *)controller;
 

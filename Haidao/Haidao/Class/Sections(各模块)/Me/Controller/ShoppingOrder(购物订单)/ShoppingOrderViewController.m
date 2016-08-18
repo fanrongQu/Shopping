@@ -2,110 +2,83 @@
 //  ShoppingOrderViewController.m
 //  Haidao
 //
-//  Created by 1860 on 16/8/8.
+//  Created by 1860 on 16/8/13.
 //  Copyright © 2016年 FanrongQu. All rights reserved.
 //
 
 #import "ShoppingOrderViewController.h"
-#import "ShoppingOrderCell.h"
-#import "MXPullDownMenu.h"
-
-@interface ShoppingOrderViewController ()<UITableViewDelegate,UITableViewDataSource,MXPullDownMenuDelegate>
-
-/**  数据表  */
-@property (nonatomic, strong) UITableView *tableView;
-
-@end
+#import "ShoppingOrderOnlineViewController.h"
+#import "ShoppingOrderOflineViewController.h"
+#import "ShoppingOrderHotboomViewController.h"
 
 @implementation ShoppingOrderViewController
-
 
 + (void)showShoppingOrderViewController:(UIViewController *)controller {
     ShoppingOrderViewController *shoppingOrderVC = [[ShoppingOrderViewController alloc]init];
     [controller.navigationController pushViewController:shoppingOrderVC animated:YES];
 }
 
-#pragma mark - 控制器的生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"购物订单";
     
+    [self setUpAllChildViewControllerWithArray];
     
-    CGRect menuF = CGRectMake(0, 64, kScreenWidth, 44);
-    NSArray *testArray = @[@[@"类别",@"状态"],@[@"类别",@"状态"],@[@"类别",@"状态"],@[@"类别",@"状态"]];
-    MXPullDownMenu *menu = [[MXPullDownMenu alloc] initWithArray:testArray selectedColor:kSubjectColor backgroundColor:[UIColor whiteColor] Frame:menuF];
-    menu.alpha = 0.8;
-    menu.delegate = self;
-    [self.view addSubview:menu];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
+    [self setMenusView];
     
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
     
-    self.tableView.delegate = nil;
-    self.tableView.dataSource = nil;
-}
-
-- (void)dealloc {
-    if (_tableView != nil) _tableView = nil;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(clickMenuTitle:) name:FRSlideMenuClickMenuTitleNote object:nil];
 }
 
 
-#pragma mark - 点击悬浮按钮进行分类选择  MXPullDownMenuDelegate
-
-- (void)PullDownMenu:(MXPullDownMenu *)pullDownMenu didSelectRowAtColumn:(NSInteger)column row:(NSInteger)row
-{
-    //    self.page = 1;
-    //    NSLog(@"%@",self.detailTypeId[row]);
-    //    if (self.cid == self.detailTypeId[row]) return;
-    //    self.cid = self.detailTypeId[row];
-    //    self.items = nil;
-    //    self.items = [NSMutableArray array];
-    //    [self getNetworking];
+// 添加所有子控制器
+- (void)setUpAllChildViewControllerWithArray {
     
-}
-
-#pragma mark - tableView dataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 7;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ShoppingOrderCell *cell = [ShoppingOrderCell cellWithTableView:tableView];
+    ShoppingOrderOnlineViewController *shoppingOrderOnlineVC = [[ShoppingOrderOnlineViewController alloc]init];
+    shoppingOrderOnlineVC.title = @"线上订单";
+    [self addChildViewController:shoppingOrderOnlineVC];
     
-    [cell setShoppingOrderOfSerialNumber:@"123432121" type:@"现金购买" consumerName:@"刘德华" commodity:@"纯净水" expendMoney:@"￥1000.00" cuttingProfits:@"100.00" time:@"2016-8-2 11:34" status:YES];
+    ShoppingOrderOflineViewController *shoppingOrderOflineVC = [[ShoppingOrderOflineViewController alloc]init];
+    shoppingOrderOflineVC.title = @"线下订单";
+    [self addChildViewController:shoppingOrderOflineVC];
     
-    return cell;
+    ShoppingOrderHotboomViewController *shoppingOrderHotboomVC = [[ShoppingOrderHotboomViewController alloc]init];
+    shoppingOrderHotboomVC.title = @"代购订单";
+    [self addChildViewController:shoppingOrderHotboomVC];
+
 }
 
-#pragma mark - tableView delegate
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewAutomaticDimension;
+- (void)setMenusView{
+    
+    [self setUpTitleEffect:^(BOOL *isShowAddMenuView, UIColor *__autoreleasing *titleScrollViewColor, UIColor *__autoreleasing *norColor, UIColor *__autoreleasing *selColor, UIFont *__autoreleasing *titleFont, CGFloat *titleHeight) {
+        *isShowAddMenuView = NO;
+        *norColor = [UIColor blackColor];
+        *selColor = kSubjectColor;
+        *titleHeight = 40;
+    }];
+    
+    // 设置标题渐变
+    [self setUpTitleGradient:^(BOOL *isShowTitleGradient, FRTitleColorGradientStyle *titleColorGradientStyle, CGFloat *startR, CGFloat *startG, CGFloat *startB, CGFloat *endR, CGFloat *endG, CGFloat *endB) {
+        
+        *isShowTitleGradient = YES;
+        
+        *titleColorGradientStyle = FRTitleColorGradientStyleFill;
+        
+        *endR = 1;
+        
+    }];
+    
+    // 设置下标
+    [self setUpUnderLineEffect:^(BOOL *isShowUnderLine, BOOL *isDelayScroll, CGFloat *underLineH, UIColor *__autoreleasing *underLineColor) {
+        *isShowUnderLine = YES;
+        *underLineColor = kSubjectColor;
+    }];
 }
 
-#pragma mark - 懒加载
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc]init];
-        [self.view addSubview:_tableView];
-        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(UIEdgeInsetsMake(108, 0, 0, 0));
-        }];
-        _tableView.tableFooterView = [UIView new];
-        _tableView.allowsSelection = NO;
-    }
-    return _tableView;
-}
 
+- (void)clickMenuTitle:(NSNotification *)not {
+//    [self cancleAddMenu:self.cancleBtn];
+}
 
 
 @end

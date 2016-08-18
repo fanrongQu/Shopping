@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HexColors.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -49,7 +54,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SVProgressHUD.xcscheme</key>
+		<key>TSMessages.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -57,7 +62,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>152CF89B813CAB8CBA7D96590DF9D250</key>
+		<key>11F1E6E3B06C3CDC13D7CEE9C8E329EE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,7 +72,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1CADFDB14C8382F8034F9990E67A33B4</key>
+		<key>306AFA6698E469111EBCD40294E3D6E7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3EC69B8F7DA183717908C797DD3F6206</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,7 +87,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>7AFADCC50B65C7D338E0F8F9BFA68EF2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7C0126D717EB28DC6DB2EEA2E20B5172</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9DB3BBA0E3F03E32971D1EBE88E79BC8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,17 +107,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B78C75406A7FB1DA3B3DA80443F3D6A4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BB3A125433EA24D10CC5EBDD9F6826EE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DB010F6B785A3E7B84328E06679028F6</key>
+		<key>C408D4E183A88B763793C217A66A1950</key>
 		<dict>
 			<key>primary</key>
 			<true/>
