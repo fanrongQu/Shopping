@@ -65,11 +65,8 @@
     
     ShoppingOrderOnlineCell *cell = [ShoppingOrderOnlineCell cellWithTableView:tableView];
     
-    cell.delegate = self;
-    cell.indexPath = indexPath;
-    cell.selectedBtn.selected = NO;
     
-        [cell setCommodityImage:nil name:@"2016新款韩版时尚夏季衬衣新款韩版时尚夏季衬衣" color:@"白色" size:@"XL" price:@"120" oldPrice:@"130" num:@"2"];
+    [cell setCommodityImage:nil name:@"2016新款韩版时尚夏季衬衣新款韩版时尚夏季衬衣" color:@"白色" size:@"XL" price:@"120" oldPrice:@"130" num:@"2"];
     
     return cell;
 }
@@ -92,11 +89,10 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     ShoppingOrderOnlineHeaderView *headerView = [ShoppingOrderOnlineHeaderView headerViewWithTableView:tableView];
-    headerView.titleName = @"汇佰硕电子商行";
-    headerView.section = section;
+    
+    [headerView setShoppingOrderOnlineHeaderViewTitle:@"汇佰硕电子商行" state:@"已付款"];
     headerView.delegate = self;
-    headerView.selectedBtn.selected = NO;
-    headerView.editBtn.selected = NO;
+   
     
     return headerView;
 }
@@ -123,7 +119,7 @@
         _tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 49, 0));
+            make.edges.mas_equalTo(0);
         }];
         
         _tableView.backgroundColor = [UIColor clearColor];

@@ -41,17 +41,6 @@
     return cell;
 }
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        [[self.selectedBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-            self.selectedBtn.selected = !self.selectedBtn.selected;
-            if ([self.delegate respondsToSelector:@selector(selectedBtnClickedOfTableViewCell:selected:)]) {
-                [self.delegate selectedBtnClickedOfTableViewCell:self selected:self.selectedBtn.selected];
-            }
-        }];
-    }
-    return self;
-}
 
 - (void)setCommodityImage:(NSString *)imageString name:(NSString *)commodityName color:(NSString *)color size:(NSString *)size price:(NSString *)price oldPrice:(NSString *)oldPrice num:(NSString *)num {
     
@@ -74,29 +63,13 @@
 }
 
 #pragma mark - 懒加载
-- (UIButton *)selectedBtn {
-    if (!_selectedBtn) {
-        _selectedBtn = [[UIButton alloc]init];
-        [self.contentView addSubview:_selectedBtn];
-        [_selectedBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(5);
-            make.size.mas_equalTo(36);
-            make.centerY.mas_equalTo(0);
-        }];
-        [_selectedBtn setImage:[UIImage imageNamed:@"未选中"] forState:UIControlStateNormal];
-        [_selectedBtn setImage:[UIImage imageNamed:@"选中"] forState:UIControlStateSelected];
-    }
-    return _selectedBtn;
-}
-
 - (UIImageView *)iconView {
     if (!_iconView) {
         _iconView = [[UIImageView alloc]init];
         [self.contentView addSubview:_iconView];
-        __weak typeof(self) weakSelf = self;
         [_iconView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(10);
-            make.left.mas_equalTo(weakSelf.selectedBtn.mas_right).with.offset(5);
+            make.left.mas_equalTo(10);
             make.bottom.mas_equalTo(-10);
             make.size.mas_equalTo(70);
         }];
@@ -117,7 +90,7 @@
         [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(weakSelf.iconView);
             make.left.mas_equalTo(weakSelf.iconView.mas_right).with.offset(10);
-            make.right.mas_equalTo(-40);
+            make.right.mas_equalTo(-65);
         }];
     }
     return _nameLabel;
@@ -132,7 +105,7 @@
         [self.contentView addSubview:_colorLabel];
         __weak typeof(self) weakSelf = self;
         [_colorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(weakSelf.nameLabel.mas_bottom).with.offset(5);
+            make.bottom.mas_equalTo(-10);
             make.left.mas_equalTo(weakSelf.nameLabel);
         }];
     }
@@ -160,12 +133,13 @@
         _priceLabel = [[UILabel alloc]init];
         _priceLabel.textColor = kUIColor_RGB(0, 132, 134, 1);
         _priceLabel.font = kFontSize(15);
+        _priceLabel.textAlignment = NSTextAlignmentRight;
         
         [self.contentView addSubview:_priceLabel];
         __weak typeof(self) weakSelf = self;
         [_priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(weakSelf.colorLabel);
-            make.bottom.mas_equalTo(-10);
+            make.top.mas_equalTo(weakSelf.nameLabel);
+            make.right.mas_equalTo(-10);
         }];
     }
     return _priceLabel;
@@ -176,12 +150,13 @@
         _oldPriceLabel = [[UILabel alloc]init];
         _oldPriceLabel.textColor = otherColor;
         _oldPriceLabel.font = kFontSize(12);
+        _oldPriceLabel.textAlignment = NSTextAlignmentRight;
         
         [self.contentView addSubview:_oldPriceLabel];
         __weak typeof(self) weakSelf = self;
         [_oldPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(weakSelf.priceLabel.mas_right).with.offset(10);
-            make.centerY.mas_equalTo(weakSelf.priceLabel);
+            make.top.mas_equalTo(weakSelf.priceLabel.mas_bottom).offset(5);
+            make.right.mas_equalTo(-10);
         }];
     }
     return _oldPriceLabel;
@@ -197,7 +172,7 @@
         __weak typeof(self) weakSelf = self;
         [_numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(-10);
-            make.centerY.mas_equalTo(weakSelf.priceLabel);
+            make.bottom.mas_equalTo(weakSelf.iconView);
         }];
     }
     return _numLabel;

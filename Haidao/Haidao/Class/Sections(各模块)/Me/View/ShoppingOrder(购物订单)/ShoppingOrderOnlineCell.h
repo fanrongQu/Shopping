@@ -8,29 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class ShoppingOrderOnlineCell;
-@protocol ShoppingOrderOnlineCellDelegate <NSObject>
-
-@optional
-/**
- *  ShoppingOrderOnlineCell的选择按钮被点击了
- *
- *  @param ShoppingOrderOnlineCell 按钮点击对应的ShoppingOrderOnlineCell
- */
-- (void)selectedBtnClickedOfTableViewCell:(ShoppingOrderOnlineCell *)ShoppingOrderOnlineCell selected:(BOOL)selected;
-
-@end
 
 @interface ShoppingOrderOnlineCell : UITableViewCell
 
-/**  cell的indexPath  */
-@property (nonatomic, assign) NSIndexPath *indexPath;
-
-/**  选择按钮  */
-@property (nonatomic, strong) UIButton *selectedBtn;
-
-/**  代理的对象  */
-@property (nonatomic, weak) id<ShoppingOrderOnlineCellDelegate> delegate;
 
 /**
  *  设置cell
