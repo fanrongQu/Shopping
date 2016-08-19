@@ -10,6 +10,8 @@
 #import "AccountsSettingCell.h"
 #import "PersonalIconViewController.h"
 #import "PersonalNameViewController.h"
+#import "PersonalPhoneViewController.h"
+#import "PersonalBankCardViewController.h"
 
 @interface AccountsSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -95,14 +97,24 @@
                 PersonalIconViewController *personalIconVC = [[PersonalIconViewController alloc]init];
                 [self.navigationController pushViewController:personalIconVC animated:YES];
             }
+                break;
             case 1:{//用户名
                 PersonalNameViewController *personalNameVC = [[PersonalNameViewController alloc]init];
                 [self.navigationController pushViewController:personalNameVC animated:YES];
             }
+                break;
             case 2:{//手机号
+                PersonalPhoneViewController *personalPhoneVC = [[PersonalPhoneViewController alloc]init];
+                [self.navigationController pushViewController:personalPhoneVC animated:YES];
                 
             }
+                break;
             case 3:{//银行卡
+                PersonalBankCardViewController *personalBankCardVC = [[PersonalBankCardViewController alloc]init];
+                [self.navigationController pushViewController:personalBankCardVC animated:YES];
+            }
+                break;
+            case 4:{//收货地址
                 
             }
                 break;

@@ -152,6 +152,10 @@
 		3BFC7DA51D587EC600DA07AC /* MakeSureSettleAccountsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC7DA41D587EC600DA07AC /* MakeSureSettleAccountsView.m */; };
 		3BFEAD261D66BA4700DDF960 /* ShoppingOrderOnlineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEAD251D66BA4700DDF960 /* ShoppingOrderOnlineHeaderView.m */; };
 		3BFEAD291D66CDFD00DDF960 /* ShoppingOrderOnlineFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEAD281D66CDFD00DDF960 /* ShoppingOrderOnlineFooterView.m */; };
+		3BFEAD2C1D67032D00DDF960 /* PersonalPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEAD2B1D67032D00DDF960 /* PersonalPhoneViewController.m */; };
+		3BFEAD2F1D6704A100DDF960 /* PersonalBankCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEAD2E1D6704A100DDF960 /* PersonalBankCardViewController.m */; };
+		3BFEAD321D6706F700DDF960 /* PersonalBankCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEAD311D6706F700DDF960 /* PersonalBankCardCell.m */; };
+		3BFEAD351D67171300DDF960 /* AddBankCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEAD341D67171300DDF960 /* AddBankCardViewController.m */; };
 		3BFEF2151D470F62001B26B5 /* ShoppingCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEF2141D470F62001B26B5 /* ShoppingCartTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -457,6 +461,14 @@
 		3BFEAD251D66BA4700DDF960 /* ShoppingOrderOnlineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingOrderOnlineHeaderView.m; sourceTree = "<group>"; };
 		3BFEAD271D66CDFD00DDF960 /* ShoppingOrderOnlineFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingOrderOnlineFooterView.h; sourceTree = "<group>"; };
 		3BFEAD281D66CDFD00DDF960 /* ShoppingOrderOnlineFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingOrderOnlineFooterView.m; sourceTree = "<group>"; };
+		3BFEAD2A1D67032D00DDF960 /* PersonalPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalPhoneViewController.h; sourceTree = "<group>"; };
+		3BFEAD2B1D67032D00DDF960 /* PersonalPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalPhoneViewController.m; sourceTree = "<group>"; };
+		3BFEAD2D1D6704A100DDF960 /* PersonalBankCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalBankCardViewController.h; sourceTree = "<group>"; };
+		3BFEAD2E1D6704A100DDF960 /* PersonalBankCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalBankCardViewController.m; sourceTree = "<group>"; };
+		3BFEAD301D6706F700DDF960 /* PersonalBankCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalBankCardCell.h; sourceTree = "<group>"; };
+		3BFEAD311D6706F700DDF960 /* PersonalBankCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalBankCardCell.m; sourceTree = "<group>"; };
+		3BFEAD331D67171300DDF960 /* AddBankCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBankCardViewController.h; sourceTree = "<group>"; };
+		3BFEAD341D67171300DDF960 /* AddBankCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBankCardViewController.m; sourceTree = "<group>"; };
 		3BFEF2131D470F62001B26B5 /* ShoppingCartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartTableViewCell.h; sourceTree = "<group>"; };
 		3BFEF2141D470F62001B26B5 /* ShoppingCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartTableViewCell.m; sourceTree = "<group>"; };
 		9FB5691237CB3E1E21206725 /* Pods-Haidao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haidao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Haidao/Pods-Haidao.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1016,6 +1028,12 @@
 				3BCA98CC1D5495E00081F484 /* PersonalIconViewController.m */,
 				3B3C04081D558DE300C5E964 /* PersonalNameViewController.h */,
 				3B3C04091D558DE300C5E964 /* PersonalNameViewController.m */,
+				3BFEAD2A1D67032D00DDF960 /* PersonalPhoneViewController.h */,
+				3BFEAD2B1D67032D00DDF960 /* PersonalPhoneViewController.m */,
+				3BFEAD2D1D6704A100DDF960 /* PersonalBankCardViewController.h */,
+				3BFEAD2E1D6704A100DDF960 /* PersonalBankCardViewController.m */,
+				3BFEAD331D67171300DDF960 /* AddBankCardViewController.h */,
+				3BFEAD341D67171300DDF960 /* AddBankCardViewController.m */,
 			);
 			path = "AccountsSetting(账户管理)";
 			sourceTree = "<group>";
@@ -1025,6 +1043,8 @@
 			children = (
 				3BCA98C81D548B1E0081F484 /* AccountsSettingCell.h */,
 				3BCA98C91D548B1E0081F484 /* AccountsSettingCell.m */,
+				3BFEAD301D6706F700DDF960 /* PersonalBankCardCell.h */,
+				3BFEAD311D6706F700DDF960 /* PersonalBankCardCell.m */,
 			);
 			path = "AccountsSetting(账户管理)";
 			sourceTree = "<group>";
@@ -1744,6 +1764,7 @@
 				3B03AD841D5C0C2900ABDFBB /* NearBusinessCell.m in Sources */,
 				3B880AE01D59D65E0010E6B5 /* StoreDetailSettingViewController.m in Sources */,
 				3BDB4AF31D51A18500834EE8 /* RefundableClearViewController.m in Sources */,
+				3BFEAD321D6706F700DDF960 /* PersonalBankCardCell.m in Sources */,
 				3B8E7A151D2E445700142D77 /* UIView+Frame.m in Sources */,
 				3BC98CA81D50DB5200F80308 /* ReceiveListViewController.m in Sources */,
 				3BE8D6371D3498C600FB782B /* CommodityView.m in Sources */,
@@ -1770,8 +1791,10 @@
 				3BB4F15D1D5C76CE0066AE69 /* FRPlist.m in Sources */,
 				3BB426911D5EC21400EB86F8 /* ShoppingOrderOflineViewController.m in Sources */,
 				3BE8D6481D34D2F000FB782B /* RegisterViewController.m in Sources */,
+				3BFEAD351D67171300DDF960 /* AddBankCardViewController.m in Sources */,
 				3B376BFC1D597488000100BE /* RechargeTypeCell.m in Sources */,
 				3BC98CA21D50DB5200F80308 /* PunctualityProfitsViewController.m in Sources */,
+				3BFEAD2C1D67032D00DDF960 /* PersonalPhoneViewController.m in Sources */,
 				3BC98CA41D50DB5200F80308 /* MerchantProfitsViewController.m in Sources */,
 				3B0921E91D38F9F60047F8E3 /* MeViewController.m in Sources */,
 				3BC98CC01D50DBD000F80308 /* PresentListCell.m in Sources */,
@@ -1820,6 +1843,7 @@
 				3BDB4AF91D51A33D00834EE8 /* RefundableClearCell.m in Sources */,
 				3BB426971D5F1E5500EB86F8 /* ShoppingOrderOnlineCell.m in Sources */,
 				3B74265C1D5C2331002EE68A /* BusinessTypeviewCell.m in Sources */,
+				3BFEAD2F1D6704A100DDF960 /* PersonalBankCardViewController.m in Sources */,
 				3B0921E01D38F94D0047F8E3 /* ClassifyViewController.m in Sources */,
 				3BE8D6421D34C97900FB782B /* FRTextField.m in Sources */,
 				3BE8D6341D34901A00FB782B /* CommodityImgCollectionViewCell.m in Sources */,
