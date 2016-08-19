@@ -150,6 +150,7 @@
 		3BFC7D9E1D5872BD00DA07AC /* SettleAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC7D9D1D5872BD00DA07AC /* SettleAccountsViewController.m */; };
 		3BFC7DA21D58775100DA07AC /* SettleAccountsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC7DA11D58775100DA07AC /* SettleAccountsView.m */; };
 		3BFC7DA51D587EC600DA07AC /* MakeSureSettleAccountsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC7DA41D587EC600DA07AC /* MakeSureSettleAccountsView.m */; };
+		3BFEAD261D66BA4700DDF960 /* ShoppingOrderOnlineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEAD251D66BA4700DDF960 /* ShoppingOrderOnlineHeaderView.m */; };
 		3BFEF2151D470F62001B26B5 /* ShoppingCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEF2141D470F62001B26B5 /* ShoppingCartTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -451,6 +452,8 @@
 		3BFC7DA11D58775100DA07AC /* SettleAccountsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettleAccountsView.m; sourceTree = "<group>"; };
 		3BFC7DA31D587EC600DA07AC /* MakeSureSettleAccountsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeSureSettleAccountsView.h; sourceTree = "<group>"; };
 		3BFC7DA41D587EC600DA07AC /* MakeSureSettleAccountsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeSureSettleAccountsView.m; sourceTree = "<group>"; };
+		3BFEAD241D66BA4700DDF960 /* ShoppingOrderOnlineHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingOrderOnlineHeaderView.h; sourceTree = "<group>"; };
+		3BFEAD251D66BA4700DDF960 /* ShoppingOrderOnlineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingOrderOnlineHeaderView.m; sourceTree = "<group>"; };
 		3BFEF2131D470F62001B26B5 /* ShoppingCartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartTableViewCell.h; sourceTree = "<group>"; };
 		3BFEF2141D470F62001B26B5 /* ShoppingCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartTableViewCell.m; sourceTree = "<group>"; };
 		9FB5691237CB3E1E21206725 /* Pods-Haidao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haidao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Haidao/Pods-Haidao.debug.xcconfig"; sourceTree = "<group>"; };
@@ -941,6 +944,8 @@
 		3B3C04151D581FA700C5E964 /* ShoppingOrder(购物订单) */ = {
 			isa = PBXGroup;
 			children = (
+				3BFEAD241D66BA4700DDF960 /* ShoppingOrderOnlineHeaderView.h */,
+				3BFEAD251D66BA4700DDF960 /* ShoppingOrderOnlineHeaderView.m */,
 				3BB426951D5F1E5500EB86F8 /* ShoppingOrderOnlineCell.h */,
 				3BB426961D5F1E5500EB86F8 /* ShoppingOrderOnlineCell.m */,
 				3BB426981D5F1F3200EB86F8 /* ShoppingOrderOflineCell.h */,
@@ -1830,6 +1835,7 @@
 				3BDB4AE21D51817000834EE8 /* BusinessIsClearingViewController.m in Sources */,
 				3BC98CBE1D50DBD000F80308 /* MerchantRechargeCell.m in Sources */,
 				3BDB4AFC1D51A52100834EE8 /* RefundableReturnCell.m in Sources */,
+				3BFEAD261D66BA4700DDF960 /* ShoppingOrderOnlineHeaderView.m in Sources */,
 				3BC98CBD1D50DBD000F80308 /* MerchantOutputCell.m in Sources */,
 				3B298ACC1D4C43AA00FB2930 /* StoreDetailHeaderView.m in Sources */,
 				3B376BF91D59703C000100BE /* RechargeTypeViewController.m in Sources */,

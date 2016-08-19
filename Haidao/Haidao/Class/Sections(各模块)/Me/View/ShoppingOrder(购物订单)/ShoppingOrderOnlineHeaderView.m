@@ -1,14 +1,14 @@
 //
-//  ShoppingCartHeaderView.m
+//  ShoppingOrderOnlineHeaderView.m
 //  Haidao
 //
 //  Created by 1860 on 16/7/27.
 //  Copyright © 2016年 FanrongQu. All rights reserved.
 //
 
-#import "ShoppingCartHeaderView.h"
+#import "ShoppingOrderOnlineHeaderView.h"
 
-@interface ShoppingCartHeaderView ()
+@interface ShoppingOrderOnlineHeaderView ()
 
 /**  背景  */
 @property (nonatomic, strong) UIView *bgView;
@@ -19,15 +19,15 @@
 
 @end
 
-@implementation ShoppingCartHeaderView
+@implementation ShoppingOrderOnlineHeaderView
 
 
 + (instancetype)headerViewWithTableView:(UITableView *)tableView
 {
-    static NSString *ID = @"ShoppingCartHeaderView";
-    ShoppingCartHeaderView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ID];
+    static NSString *ID = @"ShoppingOrderOnlineHeaderView";
+    ShoppingOrderOnlineHeaderView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ID];
     if (header == nil) {
-        header = [[ShoppingCartHeaderView alloc] initWithReuseIdentifier:ID];
+        header = [[ShoppingOrderOnlineHeaderView alloc] initWithReuseIdentifier:ID];
     }
     return header;
 }

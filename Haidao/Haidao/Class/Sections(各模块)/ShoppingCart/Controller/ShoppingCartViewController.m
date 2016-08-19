@@ -188,6 +188,14 @@
     return UITableViewAutomaticDimension;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 50;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 1;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     ShoppingCartHeaderView *headerView = [ShoppingCartHeaderView headerViewWithTableView:tableView];
     headerView.titleName = @"汇佰硕电子商行";
@@ -432,16 +440,13 @@
 #pragma mark - 懒加载
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc]init];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(0);
+            make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 49, 0));
         }];
         
-        _tableView.backgroundColor = [UIColor whiteColor];
-        _tableView.sectionHeaderHeight = 40;
-        UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 49)];
-        _tableView.tableFooterView = footerView;
+        _tableView.backgroundColor = [UIColor clearColor];
     }
     return _tableView;
 }
