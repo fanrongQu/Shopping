@@ -37,27 +37,28 @@
         
         [self imageView];
         
+        __weak typeof(self) weakSelf = self;
         //选择按钮点击事件
         [[self.selectedBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-            self.selectedBtn.selected = !self.selectedBtn.selected;
+            weakSelf.selectedBtn.selected = !weakSelf.selectedBtn.selected;
             //如果代理实现了相应的方法就会调用该方法，没有实现则不调用
-            if ([self.delegate respondsToSelector:@selector(selectedBtnClickedOfHeaderView:selected:)]) {
-                [self.delegate selectedBtnClickedOfHeaderView:self selected:self.selectedBtn.selected];
+            if ([weakSelf.delegate respondsToSelector:@selector(selectedBtnClickedInSection:selected:)]) {
+                [weakSelf.delegate selectedBtnClickedInSection:weakSelf.section selected:weakSelf.selectedBtn.selected];
             }
         }];
         //商家名称点击事件
         [[self.nameBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
             
-            if ([self.delegate respondsToSelector:@selector(nameBtnClickedOfHeaderView:)]) {
-                [self.delegate nameBtnClickedOfHeaderView:self];
+            if ([weakSelf.delegate respondsToSelector:@selector(nameBtnClickedInSection:)]) {
+                [weakSelf.delegate nameBtnClickedInSection:weakSelf.section];
             }
         }];
         
         //编辑按钮点击事件
         [[self.editBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-            self.editBtn.selected = !self.editBtn.selected;
-            if ([self.delegate respondsToSelector:@selector(editBtnClickedOfHeaderView:edit:)]) {
-                [self.delegate editBtnClickedOfHeaderView:self edit:self.editBtn.selected];
+            weakSelf.editBtn.selected = !weakSelf.editBtn.selected;
+            if ([weakSelf.delegate respondsToSelector:@selector(editBtnClickedInSection:edit:)]) {
+                [weakSelf.delegate editBtnClickedInSection:weakSelf.section edit:weakSelf.editBtn.selected];
             }
         }];
     }

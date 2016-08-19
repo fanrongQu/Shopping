@@ -52,10 +52,11 @@
     return self;
 }
 
-- (void)setShoppingOrderOnlineHeaderViewTitle:(NSString *)title state:(NSString *)state {
+- (void)setShoppingOrderOnlineHeaderViewTitle:(NSString *)title state:(NSString *)state section:(NSInteger)section{
     
     [self.nameBtn setTitle:title forState:UIControlStateNormal];
     self.stateLabel.text = state;
+    self.section = section;
 }
 
 #pragma mark - 懒加载

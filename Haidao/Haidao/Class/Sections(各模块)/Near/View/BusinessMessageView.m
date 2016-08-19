@@ -91,7 +91,7 @@
             make.right.mas_equalTo(-15);
             make.height.mas_equalTo(0.7);
         }];
-        _firstLineView.backgroundColor = kUIColor_RGB(230, 230, 230, 1);
+        _firstLineView.backgroundColor = KLineViewColor;
     }
     return _firstLineView;
 }
@@ -165,7 +165,7 @@
             make.bottom.mas_equalTo(weakSelf.distanceLabel);
             make.width.mas_equalTo(0.7);
         }];
-        _secondLineView.backgroundColor = kUIColor_RGB(230, 230, 230, 1);
+        _secondLineView.backgroundColor = KLineViewColor;
     }
     return _secondLineView;
 }
@@ -198,7 +198,7 @@
             make.right.mas_equalTo(-15);
             make.height.mas_equalTo(0.7);
         }];
-        _thridLineView.backgroundColor = kUIColor_RGB(230, 230, 230, 1);
+        _thridLineView.backgroundColor = KLineViewColor;
     }
     return _thridLineView;
 }

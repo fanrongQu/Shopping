@@ -9,10 +9,11 @@
 
 #import "ShoppingOrderOnlineViewController.h"
 #import "ShoppingOrderOnlineHeaderView.h"
+#import "ShoppingOrderOnlineFooterView.h"
 #import "ShoppingOrderOnlineCell.h"
 
 
-@interface ShoppingOrderOnlineViewController ()<UITableViewDataSource,UITableViewDelegate,ShoppingOrderOnlineHeaderViewDelegate>
+@interface ShoppingOrderOnlineViewController ()<UITableViewDataSource,UITableViewDelegate,ShoppingOrderOnlineHeaderViewDelegate,ShoppingOrderOnlineFooterViewDelegate>
 
 /**  购物订单列表  */
 @property (nonatomic, strong) UITableView *tableView;
@@ -84,17 +85,27 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 1;
+    return 80;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     ShoppingOrderOnlineHeaderView *headerView = [ShoppingOrderOnlineHeaderView headerViewWithTableView:tableView];
     
-    [headerView setShoppingOrderOnlineHeaderViewTitle:@"汇佰硕电子商行" state:@"已付款"];
+    [headerView setShoppingOrderOnlineHeaderViewTitle:@"汇佰硕电子商行" state:@"已付款" section:section];
     headerView.delegate = self;
    
     
     return headerView;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    
+    ShoppingOrderOnlineFooterView *footerView = [ShoppingOrderOnlineFooterView footerViewWithTableView:tableView];
+    
+    footerView.delegate = self;
+    [footerView setFooterViewOfPrice:@"1000.00" freight:@"10.00" number:@"3" section:section state:ShoppingOrderOnlineWaitPayState];
+    
+    return footerView;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -104,11 +115,26 @@
 
 
 #pragma mark - ShoppingOrderOnlineHeaderView delegate
-
 /**
  *  店铺名称按钮被点击了
  */
 - (void)nameBtnClickedOfHeaderView:(ShoppingOrderOnlineHeaderView *)headerView {
+    
+}
+
+
+#pragma mark - ShoppingOrderOnlineFooterView delegate
+/**
+ *  左侧按钮被点击
+ */
+- (void)footerViewLeftButtonClickInSection:(NSInteger)section state:(ShoppingOrderOnlineState)state {
+    
+}
+
+/**
+ *  右侧按钮被点击
+ */
+- (void)footerViewRightButtonClickInSection:(NSInteger)section state:(ShoppingOrderOnlineState)state {
     
 }
 
@@ -123,6 +149,9 @@
         }];
         
         _tableView.backgroundColor = [UIColor clearColor];
+        
+        [_tableView registerClass:[ShoppingOrderOnlineHeaderView class] forHeaderFooterViewReuseIdentifier:@"ShoppingOrderOnlineHeaderView"];
+        [_tableView registerClass:[ShoppingOrderOnlineFooterView class] forHeaderFooterViewReuseIdentifier:@"ShoppingOrderOnlineFooterView"];
     }
     return _tableView;
 }

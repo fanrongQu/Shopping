@@ -326,9 +326,8 @@
 /**
  *  选择按钮被点击了
  */
-- (void)selectedBtnClickedOfHeaderView:(ShoppingCartHeaderView *)headerView selected:(BOOL)selected {
+- (void)selectedBtnClickedInSection:(NSInteger)section selected:(BOOL)selected {
     
-    NSInteger section = headerView.section;
     NSLog(@"%ld",(long)section);
     
     NSArray *selectArray = self.shoppingCartArray[section];
@@ -359,16 +358,15 @@
 /**
  *  店铺名称按钮被点击了
  */
-- (void)nameBtnClickedOfHeaderView:(ShoppingCartHeaderView *)headerView {
+- (void)nameBtnClickedInSection:(NSInteger)section {
     
 }
 
 /**
  *  编辑按钮被点击了
  */
-- (void)editBtnClickedOfHeaderView:(ShoppingCartHeaderView *)headerView edit:(BOOL)edit {
+- (void)editBtnClickedInSection:(NSInteger)section edit:(BOOL)edit {
     
-    NSInteger section = headerView.section;
     if (edit) {
         NSLog(@"第%ld组进入编辑状态",(long)section);
         [self.editSectionArray addObject:[NSString stringWithFormat:@"%ld",section]];

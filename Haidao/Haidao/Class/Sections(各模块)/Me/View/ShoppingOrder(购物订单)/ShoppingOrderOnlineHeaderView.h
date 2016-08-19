@@ -34,7 +34,7 @@
  */
 + (instancetype)headerViewWithTableView:(UITableView *)tableView;
 
-- (void)setShoppingOrderOnlineHeaderViewTitle:(NSString *)title state:(NSString *)state;
+- (void)setShoppingOrderOnlineHeaderViewTitle:(NSString *)title state:(NSString *)state section:(NSInteger)section;
 
 /**  代理的对象  */
 @property (nonatomic, weak) id<ShoppingOrderOnlineHeaderViewDelegate> delegate;

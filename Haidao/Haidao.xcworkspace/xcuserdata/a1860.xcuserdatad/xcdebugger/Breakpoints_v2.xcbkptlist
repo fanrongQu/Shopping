@@ -13,5 +13,37 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Haidao/Class/Sections(&#x5404;&#x6a21;&#x5757;)/Me/Controller/ShoppingOrder(&#x8d2d;&#x7269;&#x8ba2;&#x5355;)/ShoppingOrderOnlineViewController.m"
+            timestampString = "493284768.572146"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "-footerViewLeftButtonClickInSection:state:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Haidao/Class/Sections(&#x5404;&#x6a21;&#x5757;)/Me/Controller/ShoppingOrder(&#x8d2d;&#x7269;&#x8ba2;&#x5355;)/ShoppingOrderOnlineViewController.m"
+            timestampString = "493284768.572146"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "-footerViewRightButtonClickInSection:state:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

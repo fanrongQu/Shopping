@@ -18,21 +18,21 @@
  *
  *  @param headerView 按钮点击对应的headerView
  */
-- (void)selectedBtnClickedOfHeaderView:(ShoppingCartHeaderView *)headerView selected:(BOOL)selected;
+- (void)selectedBtnClickedInSection:(NSInteger)section selected:(BOOL)selected;
 
 /**
  *  店铺名称按钮被点击了
  *
  *  @param headerView 按钮点击对应的headerView
  */
-- (void)nameBtnClickedOfHeaderView:(ShoppingCartHeaderView *)headerView;
+- (void)nameBtnClickedInSection:(NSInteger)section;
 
 /**
  *  编辑按钮被点击了
  *
  *  @param headerView 按钮点击对应的headerView
  */
-- (void)editBtnClickedOfHeaderView:(ShoppingCartHeaderView *)headerView edit:(BOOL)edit;
+- (void)editBtnClickedInSection:(NSInteger)section edit:(BOOL)edit;
 
 @end
 

@@ -115,7 +115,7 @@
             make.right.mas_equalTo(weakSelf.nameField);
             make.height.mas_equalTo(0.7);
         }];
-        lineView.backgroundColor = [UIColor lightGrayColor];
+        lineView.backgroundColor = KLineViewColor;
     }
     return _nameField;
 }
@@ -155,7 +155,7 @@
             make.right.mas_equalTo(weakSelf.nameField);
             make.height.mas_equalTo(0.7);
         }];
-        lineView.backgroundColor = [UIColor lightGrayColor];
+        lineView.backgroundColor = KLineViewColor;
     }
     return _pwdField;
 }

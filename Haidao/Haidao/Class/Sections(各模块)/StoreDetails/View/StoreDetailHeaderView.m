@@ -209,7 +209,7 @@
             make.right.mas_equalTo(0);
             make.width.mas_equalTo(0.7);
         }];
-        lineView.backgroundColor = [UIColor lightGrayColor];
+        lineView.backgroundColor = KLineViewColor;
     }
     return _storeHomeBtn;
 }
@@ -238,7 +238,7 @@
             make.right.mas_equalTo(0);
             make.width.mas_equalTo(0.7);
         }];
-        lineView.backgroundColor = [UIColor lightGrayColor];
+        lineView.backgroundColor = KLineViewColor;
     }
     return _allCommodityBtn;
 }
@@ -267,7 +267,7 @@
             make.right.mas_equalTo(0);
             make.width.mas_equalTo(0.7);
         }];
-        lineView.backgroundColor = [UIColor lightGrayColor];
+        lineView.backgroundColor = KLineViewColor;
     }
     return _hotsCommodityBtn;
 }

@@ -208,7 +208,7 @@
             make.right.mas_equalTo(0);
             make.width.mas_equalTo(0.7);
         }];
-        lineView.backgroundColor = [UIColor lightGrayColor];
+        lineView.backgroundColor = KLineViewColor;
     }
     return _storeHomeBtn;
 }
@@ -237,7 +237,7 @@
             make.right.mas_equalTo(0);
             make.width.mas_equalTo(0.7);
         }];
-        lineView.backgroundColor = [UIColor lightGrayColor];
+        lineView.backgroundColor = KLineViewColor;
     }
     return _allCommodityBtn;
 }
@@ -266,7 +266,7 @@
             make.right.mas_equalTo(0);
             make.width.mas_equalTo(0.7);
         }];
-        lineView.backgroundColor = [UIColor lightGrayColor];
+        lineView.backgroundColor = KLineViewColor;
     }
     return _hotsCommodityBtn;
 }
@@ -297,9 +297,9 @@
         [_cuttingLineView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(weakSelf.newsCommodityBtn.mas_bottom);
             make.left.right.mas_equalTo(0);
-            make.height.mas_equalTo(0.6);
+            make.height.mas_equalTo(0.7);
         }];
-        _cuttingLineView.backgroundColor = [UIColor lightGrayColor];
+        _cuttingLineView.backgroundColor = KLineViewColor;
     }
     return _cuttingLineView;
 }

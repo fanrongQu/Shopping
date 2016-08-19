@@ -75,7 +75,7 @@
             make.left.right.mas_equalTo(_nameFiled);
             make.height.mas_equalTo(0.7);
         }];
-        lineView.backgroundColor = [UIColor lightGrayColor];
+        lineView.backgroundColor = KLineViewColor;
     }
     return _nameFiled;
 }

@@ -75,7 +75,7 @@
         make.top.bottom.right.mas_equalTo(0);
         make.width.mas_equalTo(0.7);
     }];
-    lineView.backgroundColor = [UIColor lightGrayColor];
+    lineView.backgroundColor = KLineViewColor;
     return _presentIntegralBtn;
 }
 
@@ -101,9 +101,9 @@
         [_cuttingLineView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.mas_equalTo(weakSelf.presentIntegralBtn.mas_bottom);
             make.left.right.mas_equalTo(0);
-            make.height.mas_equalTo(0.6);
+            make.height.mas_equalTo(0.7);
         }];
-        _cuttingLineView.backgroundColor = [UIColor lightGrayColor];
+        _cuttingLineView.backgroundColor = KLineViewColor;
     }
     return _cuttingLineView;
 }
