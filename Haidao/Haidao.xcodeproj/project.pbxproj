@@ -64,6 +64,11 @@
 		3B74265F1D5C2A94002EE68A /* BusinessTypeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B74265E1D5C2A94002EE68A /* BusinessTypeButton.m */; };
 		3B7426621D5C565D002EE68A /* BusinessMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7426611D5C565D002EE68A /* BusinessMessageView.m */; };
 		3B7426651D5C6D3B002EE68A /* NearListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7426641D5C6D3B002EE68A /* NearListViewController.m */; };
+		3B7AABF81D684D5600293D79 /* AddShippingAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AABF71D684D5600293D79 /* AddShippingAddressViewController.m */; };
+		3B87B7751D69485100B106CE /* MakeSureOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B87B7741D69485100B106CE /* MakeSureOrderViewController.m */; };
+		3B87B7781D694AD400B106CE /* MakeSureOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B87B7771D694AD400B106CE /* MakeSureOrderCell.m */; };
+		3B87B77B1D6951EA00B106CE /* MakeSureOrderHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B87B77A1D6951EA00B106CE /* MakeSureOrderHeaderView.m */; };
+		3B87B77E1D6953FC00B106CE /* MakeSureOrderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B87B77D1D6953FC00B106CE /* MakeSureOrderFooterView.m */; };
 		3B87F7BA1D51DA41000175A9 /* FilterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B87F7B91D51DA41000175A9 /* FilterButton.m */; };
 		3B880AD71D59BA130010E6B5 /* StoreSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B880AD61D59BA130010E6B5 /* StoreSettingCell.m */; };
 		3B880ADD1D59CE580010E6B5 /* NSAttributedString+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B880ADC1D59CE580010E6B5 /* NSAttributedString+Category.m */; };
@@ -91,6 +96,8 @@
 		3BA421AF1D4B2EF600085054 /* ClassifyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA421AE1D4B2EF600085054 /* ClassifyCollectionViewCell.m */; };
 		3BA421B21D4B5F2C00085054 /* HomeSeleteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA421B11D4B5F2C00085054 /* HomeSeleteButton.m */; };
 		3BA421BA1D4B6AD300085054 /* StoreDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA421B91D4B6AD300085054 /* StoreDetailsViewController.m */; };
+		3BB3E63B1D67F5840087C74B /* ShippingAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3E63A1D67F5840087C74B /* ShippingAddressViewController.m */; };
+		3BB3E63E1D67FBFD0087C74B /* ShippingAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3E63D1D67FBFD0087C74B /* ShippingAddressCell.m */; };
 		3BB4268E1D5EC1D200EB86F8 /* ShoppingOrderOnlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4268D1D5EC1D200EB86F8 /* ShoppingOrderOnlineViewController.m */; };
 		3BB426911D5EC21400EB86F8 /* ShoppingOrderOflineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB426901D5EC21400EB86F8 /* ShoppingOrderOflineViewController.m */; };
 		3BB426941D5EC2E500EB86F8 /* ShoppingOrderHotboomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB426931D5EC2E500EB86F8 /* ShoppingOrderHotboomViewController.m */; };
@@ -283,6 +290,16 @@
 		3B7426611D5C565D002EE68A /* BusinessMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessMessageView.m; sourceTree = "<group>"; };
 		3B7426631D5C6D3B002EE68A /* NearListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearListViewController.h; sourceTree = "<group>"; };
 		3B7426641D5C6D3B002EE68A /* NearListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearListViewController.m; sourceTree = "<group>"; };
+		3B7AABF61D684D5600293D79 /* AddShippingAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddShippingAddressViewController.h; sourceTree = "<group>"; };
+		3B7AABF71D684D5600293D79 /* AddShippingAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddShippingAddressViewController.m; sourceTree = "<group>"; };
+		3B87B7731D69485100B106CE /* MakeSureOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeSureOrderViewController.h; sourceTree = "<group>"; };
+		3B87B7741D69485100B106CE /* MakeSureOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeSureOrderViewController.m; sourceTree = "<group>"; };
+		3B87B7761D694AD400B106CE /* MakeSureOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeSureOrderCell.h; sourceTree = "<group>"; };
+		3B87B7771D694AD400B106CE /* MakeSureOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeSureOrderCell.m; sourceTree = "<group>"; };
+		3B87B7791D6951EA00B106CE /* MakeSureOrderHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeSureOrderHeaderView.h; sourceTree = "<group>"; };
+		3B87B77A1D6951EA00B106CE /* MakeSureOrderHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeSureOrderHeaderView.m; sourceTree = "<group>"; };
+		3B87B77C1D6953FC00B106CE /* MakeSureOrderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeSureOrderFooterView.h; sourceTree = "<group>"; };
+		3B87B77D1D6953FC00B106CE /* MakeSureOrderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeSureOrderFooterView.m; sourceTree = "<group>"; };
 		3B87F7B81D51DA41000175A9 /* FilterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterButton.h; sourceTree = "<group>"; };
 		3B87F7B91D51DA41000175A9 /* FilterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterButton.m; sourceTree = "<group>"; };
 		3B880AD51D59BA130010E6B5 /* StoreSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreSettingCell.h; sourceTree = "<group>"; };
@@ -339,6 +356,10 @@
 		3BA421B11D4B5F2C00085054 /* HomeSeleteButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeSeleteButton.m; sourceTree = "<group>"; };
 		3BA421B81D4B6AD300085054 /* StoreDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDetailsViewController.h; sourceTree = "<group>"; };
 		3BA421B91D4B6AD300085054 /* StoreDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDetailsViewController.m; sourceTree = "<group>"; };
+		3BB3E6391D67F5840087C74B /* ShippingAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShippingAddressViewController.h; sourceTree = "<group>"; };
+		3BB3E63A1D67F5840087C74B /* ShippingAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShippingAddressViewController.m; sourceTree = "<group>"; };
+		3BB3E63C1D67FBFD0087C74B /* ShippingAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShippingAddressCell.h; sourceTree = "<group>"; };
+		3BB3E63D1D67FBFD0087C74B /* ShippingAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShippingAddressCell.m; sourceTree = "<group>"; };
 		3BB4268C1D5EC1D200EB86F8 /* ShoppingOrderOnlineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingOrderOnlineViewController.h; sourceTree = "<group>"; };
 		3BB4268D1D5EC1D200EB86F8 /* ShoppingOrderOnlineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingOrderOnlineViewController.m; sourceTree = "<group>"; };
 		3BB4268F1D5EC21400EB86F8 /* ShoppingOrderOflineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingOrderOflineViewController.h; sourceTree = "<group>"; };
@@ -763,6 +784,8 @@
 			children = (
 				3B0921E41D38F9E10047F8E3 /* ShoppingCartViewController.h */,
 				3B0921E51D38F9E10047F8E3 /* ShoppingCartViewController.m */,
+				3B87B7731D69485100B106CE /* MakeSureOrderViewController.h */,
+				3B87B7741D69485100B106CE /* MakeSureOrderViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -789,6 +812,12 @@
 				3B0C2E611D49A4FE00DADE6E /* ParameterButton.m */,
 				3B0C2E631D49CF5300DADE6E /* ShoppingCartBottomView.h */,
 				3B0C2E641D49CF5300DADE6E /* ShoppingCartBottomView.m */,
+				3B87B7761D694AD400B106CE /* MakeSureOrderCell.h */,
+				3B87B7771D694AD400B106CE /* MakeSureOrderCell.m */,
+				3B87B7791D6951EA00B106CE /* MakeSureOrderHeaderView.h */,
+				3B87B77A1D6951EA00B106CE /* MakeSureOrderHeaderView.m */,
+				3B87B77C1D6953FC00B106CE /* MakeSureOrderFooterView.h */,
+				3B87B77D1D6953FC00B106CE /* MakeSureOrderFooterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1034,6 +1063,10 @@
 				3BFEAD2E1D6704A100DDF960 /* PersonalBankCardViewController.m */,
 				3BFEAD331D67171300DDF960 /* AddBankCardViewController.h */,
 				3BFEAD341D67171300DDF960 /* AddBankCardViewController.m */,
+				3BB3E6391D67F5840087C74B /* ShippingAddressViewController.h */,
+				3BB3E63A1D67F5840087C74B /* ShippingAddressViewController.m */,
+				3B7AABF61D684D5600293D79 /* AddShippingAddressViewController.h */,
+				3B7AABF71D684D5600293D79 /* AddShippingAddressViewController.m */,
 			);
 			path = "AccountsSetting(账户管理)";
 			sourceTree = "<group>";
@@ -1045,6 +1078,8 @@
 				3BCA98C91D548B1E0081F484 /* AccountsSettingCell.m */,
 				3BFEAD301D6706F700DDF960 /* PersonalBankCardCell.h */,
 				3BFEAD311D6706F700DDF960 /* PersonalBankCardCell.m */,
+				3BB3E63C1D67FBFD0087C74B /* ShippingAddressCell.h */,
+				3BB3E63D1D67FBFD0087C74B /* ShippingAddressCell.m */,
 			);
 			path = "AccountsSetting(账户管理)";
 			sourceTree = "<group>";
@@ -1757,7 +1792,9 @@
 				3BFC7DA51D587EC600DA07AC /* MakeSureSettleAccountsView.m in Sources */,
 				3BB4F15A1D5C75F00066AE69 /* PositionBtn.m in Sources */,
 				3B152F5D1D379D4700CA76F6 /* ShoppingNum.m in Sources */,
+				3B87B7751D69485100B106CE /* MakeSureOrderViewController.m in Sources */,
 				3B0921CD1D38F6990047F8E3 /* RootTabBarViewController.m in Sources */,
+				3BB3E63B1D67F5840087C74B /* ShippingAddressViewController.m in Sources */,
 				3BC98CA01D50DB5200F80308 /* ExpendProfitsViewController.m in Sources */,
 				3B8E7A221D2E445700142D77 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				3B0C2E621D49A4FE00DADE6E /* ParameterButton.m in Sources */,
@@ -1771,6 +1808,7 @@
 				3BA421BA1D4B6AD300085054 /* StoreDetailsViewController.m in Sources */,
 				3B880AE91D59E6C30010E6B5 /* DetailAddressView.m in Sources */,
 				3B8E7A171D2E445700142D77 /* BaseViewModel.m in Sources */,
+				3BB3E63E1D67FBFD0087C74B /* ShippingAddressCell.m in Sources */,
 				3BC98CC11D50DBD000F80308 /* ReceiveListCell.m in Sources */,
 				3BB4268E1D5EC1D200EB86F8 /* ShoppingOrderOnlineViewController.m in Sources */,
 				3B0921C71D38F5990047F8E3 /* HomeViewController.m in Sources */,
@@ -1785,6 +1823,7 @@
 				3BDB4AE51D51847400834EE8 /* BusinessIsClearingCell.m in Sources */,
 				3B5975FD1D5EB36000BCB548 /* OrderManageCell.m in Sources */,
 				3B3C04111D5598F000C5E964 /* SettingViewController.m in Sources */,
+				3B87B7781D694AD400B106CE /* MakeSureOrderCell.m in Sources */,
 				3B376C0C1D59B305000100BE /* StoreSettingViewController.m in Sources */,
 				3B5D5C3D1D48503A00878225 /* ShoppingCartHeaderView.m in Sources */,
 				3BC98CA71D50DB5200F80308 /* PresentListViewController.m in Sources */,
@@ -1855,6 +1894,7 @@
 				3B880ADD1D59CE580010E6B5 /* NSAttributedString+Category.m in Sources */,
 				3BC98CC41D50DC8600F80308 /* BusinessPaymentViewController.m in Sources */,
 				3BDB4AF01D519D0400834EE8 /* RefundableMoneyViewController.m in Sources */,
+				3B87B77E1D6953FC00B106CE /* MakeSureOrderFooterView.m in Sources */,
 				3B8E7A231D2E445700142D77 /* FRFormData.m in Sources */,
 				3BDB4AF61D51A1A300834EE8 /* RefundableReturnViewController.m in Sources */,
 				3B8E7A131D2E445700142D77 /* AppDelegate+Category.m in Sources */,
@@ -1876,6 +1916,7 @@
 				3BFEAD291D66CDFD00DDF960 /* ShoppingOrderOnlineFooterView.m in Sources */,
 				3BE8D6311D347E3C00FB782B /* ShoppingCartButton.m in Sources */,
 				3BE8D64E1D34E14600FB782B /* ShoppingView.m in Sources */,
+				3B7AABF81D684D5600293D79 /* AddShippingAddressViewController.m in Sources */,
 				3BC98CA11D50DB5200F80308 /* OutputProfitsViewController.m in Sources */,
 				3B87F7BA1D51DA41000175A9 /* FilterButton.m in Sources */,
 				3BFC7DA21D58775100DA07AC /* SettleAccountsView.m in Sources */,
@@ -1886,6 +1927,7 @@
 				3BB4269A1D5F1F3200EB86F8 /* ShoppingOrderOflineCell.m in Sources */,
 				3B880AE61D59E3E20010E6B5 /* StoreAddressSettingViewController.m in Sources */,
 				3B880AD71D59BA130010E6B5 /* StoreSettingCell.m in Sources */,
+				3B87B77B1D6951EA00B106CE /* MakeSureOrderHeaderView.m in Sources */,
 				3B6E992F1D54312E0012BDF7 /* AccountsSettingViewController.m in Sources */,
 				3BCA98CA1D548B1E0081F484 /* AccountsSettingCell.m in Sources */,
 				3B8E7A251D2E445700142D77 /* FRBadge.m in Sources */,

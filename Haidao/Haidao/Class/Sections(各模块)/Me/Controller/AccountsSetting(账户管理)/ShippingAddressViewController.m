@@ -1,18 +1,18 @@
 //
-//  PersonalBankCardViewController.m
+//  ShippingAddressViewController.m
 //  Haidao
 //
-//  Created by 1860 on 16/8/19.
+//  Created by 1860 on 16/8/20.
 //  Copyright © 2016年 FanrongQu. All rights reserved.
 //
 
-#import "PersonalBankCardViewController.h"
-#import "PersonalBankCardCell.h"
-#import "AddBankCardViewController.h"
+#import "ShippingAddressViewController.h"
+#import "ShippingAddressCell.h"
+#import "AddShippingAddressViewController.h"
 
-@interface PersonalBankCardViewController ()<UITableViewDelegate,UITableViewDataSource,PersonalBankCardCellDelegate>
+@interface ShippingAddressViewController ()<UITableViewDelegate,UITableViewDataSource,ShippingAddressCellDelegate>
 
-/**  银行卡列表  */
+/**  收货地址列表  */
 @property (nonatomic, strong) UITableView *tableView;
 
 /**  选中的indexPath  */
@@ -20,11 +20,11 @@
 
 @end
 
-@implementation PersonalBankCardViewController
+@implementation ShippingAddressViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"银行卡管理";
+    self.title = @"收货地址管理";
     
     [self setBottomView];
 }
@@ -34,13 +34,10 @@
     if (_tableView != nil) _tableView = nil;
 }
 
-/**
- *  设置tableView的footerView
- */
 - (void)setBottomView {
     
     UIButton *addButton = [[UIButton alloc]init];
-    [addButton setTitle:@"添加银行卡" forState:UIControlStateNormal];
+    [addButton setTitle:@"添加收货地址" forState:UIControlStateNormal];
     [addButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     addButton.backgroundColor = kSubjectColor;
     addButton.titleLabel.font = kFontSize(14);
@@ -53,15 +50,16 @@
     
     __weak typeof(self) weakSelf = self;
     [[addButton rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-        NSLog(@"添加银行卡");
-        AddBankCardViewController *addBankCardVC = [[AddBankCardViewController alloc]init];
-        [weakSelf.navigationController pushViewController:addBankCardVC animated:YES];
+        NSLog(@"添加收货地址");
+        AddShippingAddressViewController *addShippingAddressVC = [[AddShippingAddressViewController alloc]init];
+        addShippingAddressVC.title = @"添加新地址";
+        [weakSelf.navigationController pushViewController:addShippingAddressVC animated:YES];
     }];
 }
 
-#pragma mark - tableview dataSource
+#pragma mark - tableView dataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -70,14 +68,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    PersonalBankCardCell *cell = [PersonalBankCardCell cellWithTableView:tableView];
+    ShippingAddressCell *cell = [ShippingAddressCell cellWithTableView:tableView];
     cell.delegate = self;
-    [cell setPersonalbankCardIcon:nil bankName:@"中国农业银行" bankNumber:@"622712343342123" indexPath:indexPath];
+    [cell setShippingAddressName:@"IOS-RONG" phone:@"15839952321" address:@"河南省南阳市宛城区长江路80号南阳理工学院" indexPath:indexPath];
     
     if (![indexPath isEqual:self.defaultBankIndexPath]) {
         cell.settingDefaultBtn.selected = NO;
     }
-    
     return cell;
 }
 
@@ -94,19 +91,24 @@
     return 10;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+#pragma mark - ShippingAddressCell delegate
+- (void)setDefaultShippingAddressAtIndexPath:(NSIndexPath *)indexPath {
     
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-#pragma mark - PersonalBankCardCell delegate
-- (void)setDefaultBankCardAtIndexPath:(NSIndexPath *)indexPath {
     self.defaultBankIndexPath = indexPath;
     [self.tableView reloadData];
 }
 
-- (void)removeBankCardAtIndexPath:(NSIndexPath *)indexPath {
+- (void)removeShippingAddressAtIndexPath:(NSIndexPath *)indexPath {
     
+}
+
+- (void)editShippingAddressAtIndexPath:(NSIndexPath *)indexPath {
+    AddShippingAddressViewController *addShippingAddressVC = [[AddShippingAddressViewController alloc]init];
+    addShippingAddressVC.title = @"编辑地址";
+    
+    [addShippingAddressVC setShippingAddressName:@"IOS-RONG" phone:@"158****2321" area:@"河南省 南阳市" address:@"宛城区长江路80号南阳理工学院" defaultAddress:YES];
+    
+    [self.navigationController pushViewController:addShippingAddressVC animated:YES];
 }
 
 
@@ -120,11 +122,11 @@
         }];
         
         _tableView.backgroundColor = [UIColor clearColor];
+        _tableView.allowsSelection = NO;
         _tableView.delegate = self;
         _tableView.dataSource = self;
     }
     return _tableView;
 }
-
 
 @end

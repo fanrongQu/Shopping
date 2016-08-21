@@ -16,10 +16,10 @@
 @property (nonatomic, strong) UILabel *bankNameLabel;
 /**  卡号  */
 @property (nonatomic, strong) UILabel *bankNumberLabel;
-/**  默认  */
-@property (nonatomic, strong) UIButton *settingDefaultBtn;
 /**  删除  */
 @property (nonatomic, strong) UIButton *removeBtn;
+/**  cell的indexPath  */
+@property (nonatomic, strong) NSIndexPath *indexPath;
 
 @end
 
@@ -38,13 +38,23 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
+        __weak typeof(self) weakSelf = self;
         [[self.settingDefaultBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+            if(weakSelf.settingDefaultBtn.selected) return;
+            
+            weakSelf.settingDefaultBtn.selected = YES;
+            
+            if ([self.delegate respondsToSelector:@selector(setDefaultBankCardAtIndexPath:)]) {
+                [self.delegate setDefaultBankCardAtIndexPath:weakSelf.indexPath];
+            }
             
         }];
         
         
         [[self.removeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-            
+            if ([self.delegate respondsToSelector:@selector(removeBankCardAtIndexPath:)]) {
+                [self.delegate removeBankCardAtIndexPath:weakSelf.indexPath];
+            }
         }];
         
         
@@ -52,13 +62,14 @@
     return self;
 }
 
-- (void)setPersonalbankCardIcon:(NSString *)bankIcon bankName:(NSString *)bankName bankNumber:(NSString *)bankNumber {
+- (void)setPersonalbankCardIcon:(NSString *)bankIcon bankName:(NSString *)bankName bankNumber:(NSString *)bankNumber indexPath:(NSIndexPath *)indexPath{
     self.bankImageView.backgroundColor = [UIColor redColor];
     self.bankNameLabel.text = bankName;
     
     NSString *string = [bankNumber substringFromIndex:bankNumber.length - 4];
     
     self.bankNumberLabel.text = [NSString stringWithFormat:@"**** **** **** %@",string];
+    self.indexPath = indexPath;
 }
 
 #pragma mark - 懒加载
@@ -67,10 +78,10 @@
         _bankImageView = [[UIImageView alloc]init];
         [self.contentView addSubview:_bankImageView];
         [_bankImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_offset(25);
-            make.left.mas_offset(15);
-            make.bottom.mas_offset(-25);
-            make.size.mas_offset(54);
+            make.top.mas_equalTo(25);
+            make.left.mas_equalTo(15);
+            make.bottom.mas_equalTo(-25);
+            make.size.mas_equalTo(54);
         }];
     }
     return _bankImageView;
@@ -118,8 +129,14 @@
         }];
         
         _settingDefaultBtn.titleLabel.font = kFontSize(14);
-        [_settingDefaultBtn setTitle:@"设为默认" forState:UIControlStateNormal];
+        [_settingDefaultBtn setImage:[UIImage imageNamed:@"default_normal"] forState:UIControlStateNormal];
+        [_settingDefaultBtn setImage:[UIImage imageNamed:@"default_selected"] forState:UIControlStateSelected];
+        
+        [_settingDefaultBtn setTitle:@" 设为默认" forState:UIControlStateNormal];
+        [_settingDefaultBtn setTitle:@" 默认银行卡" forState:UIControlStateSelected];
+        
         [_settingDefaultBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_settingDefaultBtn setTitleColor:kSubjectColor forState:UIControlStateSelected];
     }
     return _settingDefaultBtn;
 }
@@ -136,7 +153,8 @@
         }];
         
         _removeBtn.titleLabel.font = kFontSize(14);
-        [_removeBtn setTitle:@"删除" forState:UIControlStateNormal];
+        [_removeBtn setImage:[UIImage imageNamed:@"删除"] forState:UIControlStateNormal];
+        [_removeBtn setTitle:@" 删除" forState:UIControlStateNormal];
         [_removeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
     return _removeBtn;

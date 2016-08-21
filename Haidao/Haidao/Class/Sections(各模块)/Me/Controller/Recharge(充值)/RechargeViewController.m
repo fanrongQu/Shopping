@@ -139,11 +139,12 @@
     if (!_nextStepButton) {
         _nextStepButton = [[UIButton alloc]init];
         [self.view addSubview:_nextStepButton];
+        __weak typeof(self) weakSelf = self;
         [_nextStepButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(weakSelf.rechargeTypeView.mas_bottom).offset(20);
             make.width.mas_equalTo(kScreenWidth - 60);
             make.height.mas_equalTo(40);
             make.centerX.mas_equalTo(0);
-            make.bottom.mas_equalTo(-50);
         }];
         _nextStepButton.titleLabel.font = kFontSize(14);
         [_nextStepButton setTitle:@"下一步" forState:UIControlStateNormal];

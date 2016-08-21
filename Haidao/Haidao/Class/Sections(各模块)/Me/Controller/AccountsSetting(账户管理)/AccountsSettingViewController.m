@@ -12,6 +12,7 @@
 #import "PersonalNameViewController.h"
 #import "PersonalPhoneViewController.h"
 #import "PersonalBankCardViewController.h"
+#import "ShippingAddressViewController.h"
 
 @interface AccountsSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -75,8 +76,10 @@
         [cell setAccountsSettingCellIconImage:nil];
     }else if (section == 0&&row == 1) {
         cell.detailTextLabel.text = @"阳春白雪";
+    }else if (section == 0&&row == 2){
+        cell.detailTextLabel.text = @"158****2321";
     }else {
-        cell.detailTextLabel.text = @"121111";
+        cell.detailTextLabel.text = nil;
     }
     
     return cell;
@@ -115,7 +118,8 @@
             }
                 break;
             case 4:{//收货地址
-                
+                ShippingAddressViewController *shippingAddressVC = [[ShippingAddressViewController alloc]init];
+                [self.navigationController pushViewController:shippingAddressVC animated:YES];
             }
                 break;
                 

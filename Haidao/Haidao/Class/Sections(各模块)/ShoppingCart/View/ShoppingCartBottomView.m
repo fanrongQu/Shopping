@@ -85,6 +85,13 @@
     }
 }
 
+- (void)setShoppingCartBottomViewNumber:(NSString *)number allPrice:(NSString *)price {
+    self.totalPricesL.text = [NSString stringWithFormat:@"￥%@",price];
+    
+    NSString *settleTitle = [NSString stringWithFormat:@"结算(%@)",number];
+    [self.settleAccountsBtn setTitle:settleTitle forState:UIControlStateNormal];
+}
+
 #pragma mark - 懒加载
 - (UIButton *)selectedBtn {
     if (!_selectedBtn) {
@@ -126,7 +133,6 @@
             make.width.mas_equalTo(100);
         }];
         _settleAccountsBtn.titleLabel.font = kFontSize(14);
-        [_settleAccountsBtn setTitle:@"结算(0)" forState:UIControlStateNormal];
         [_settleAccountsBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _settleAccountsBtn.backgroundColor = kSubjectColor;
     }
@@ -158,7 +164,6 @@
             make.right.mas_equalTo(weakSelf.uncarriageLabel.mas_left).offset(-10);
             make.centerY.mas_equalTo(weakSelf.selectedBtn);
         }];
-        _totalPricesL.text = @"￥0.00";
         _totalPricesL.textColor = kUIColor_RGB(0, 132, 134, 1);
         _totalPricesL.font = kFontSize(14);
     }

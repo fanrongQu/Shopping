@@ -14,6 +14,8 @@
 
 #import "SelectIndexPath.h"
 
+#import "MakeSureOrderViewController.h"
+
 @interface ShoppingCartViewController ()<UITableViewDataSource,UITableViewDelegate,ShoppingCartHeaderViewDelegate,ShoppingCartTableViewCellDelegate,ShoppingCartEditCellDelegate,ShoppingNumDelegate,ShoppingCartBottomViewDelegate>
 
 /**  购物车商品列表  */
@@ -41,22 +43,12 @@
     [super viewDidLoad];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"编辑" style:UIBarButtonItemStyleDone target:self action:@selector(rightBarButtonItemClick:)];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    
+    [self tableView];
     [self bottomView];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
     
-    self.tableView.delegate = nil;
-    self.tableView.dataSource = nil;
+    //设置bottomView的数据
+    [self.bottomView setShoppingCartBottomViewNumber:@"9" allPrice:@"1080.00"];
 }
 
 - (void)dealloc {
@@ -412,6 +404,9 @@
  */
 - (void)clickSettleAccountsBtn {
     NSLog(@"点击了结算按钮");
+    
+    MakeSureOrderViewController *makeSureOrderVC = [[MakeSureOrderViewController alloc]init];
+    [self.navigationController pushViewController:makeSureOrderVC animated:YES];
 }
 
 /**
@@ -445,6 +440,8 @@
         }];
         
         _tableView.backgroundColor = [UIColor clearColor];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
     }
     return _tableView;
 }

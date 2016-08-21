@@ -40,6 +40,10 @@
 @property (nonatomic, strong) UIButton *selectedBtn;
 /**  编辑状态  */
 @property (nonatomic, assign) BOOL isEdit;
+
+
+- (void)setShoppingCartBottomViewNumber:(NSString *)number allPrice:(NSString *)price;
+
 /**  代理对象  */
 @property (nonatomic, weak) id<ShoppingCartBottomViewDelegate> delegate;
 
