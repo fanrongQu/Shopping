@@ -1672,6 +1672,7 @@
 				TargetAttributes = {
 					3BF7BA5D1D2C9C0D00A48D3A = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					3BF7BA761D2C9C0D00A48D3A = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -2103,6 +2104,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sglm.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -2140,6 +2142,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sglm.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

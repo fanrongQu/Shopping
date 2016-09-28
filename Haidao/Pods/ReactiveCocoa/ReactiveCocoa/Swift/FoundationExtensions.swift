@@ -9,13 +9,13 @@
 import Foundation
 import enum Result.NoError
 
-extension NSNotificationCenter {
+extension NotificationCenter {
 	/// Returns a producer of notifications posted that match the given criteria.
 	/// This producer will not terminate naturally, so it must be explicitly
 	/// disposed to avoid leaks.
-	public func rac_notifications(name: String? = nil, object: AnyObject? = nil) -> SignalProducer<NSNotification, NoError> {
+	public func rac_notifications(_ name: String? = nil, object: AnyObject? = nil) -> SignalProducer<Notification, NoError> {
 		return SignalProducer { observer, disposable in
-			let notificationObserver = self.addObserverForName(name, object: object, queue: nil) { notification in
+			let notificationObserver = self.addObserver(forName: name, object: object, queue: nil) { notification in
 				observer.sendNext(notification)
 			}
 
@@ -28,19 +28,19 @@ extension NSNotificationCenter {
 
 private let defaultSessionError = NSError(domain: "org.reactivecocoa.ReactiveCocoa.rac_dataWithRequest", code: 1, userInfo: nil)
 
-extension NSURLSession {
+extension URLSession {
 	/// Returns a producer that will execute the given request once for each
 	/// invocation of start().
-	public func rac_dataWithRequest(request: NSURLRequest) -> SignalProducer<(NSData, NSURLResponse), NSError> {
+	public func rac_dataWithRequest(_ request: URLRequest) -> SignalProducer<(Data, URLResponse), NSError> {
 		return SignalProducer { observer, disposable in
-			let task = self.dataTaskWithRequest(request) { data, response, error in
-				if let data = data, response = response {
+			let task = self.dataTask(with: request, completionHandler: { data, response, error in
+				if let data = data, let response = response {
 					observer.sendNext((data, response))
 					observer.sendCompleted()
 				} else {
 					observer.sendFailed(error ?? defaultSessionError)
 				}
-			}
+			}) 
 
 			disposable.addDisposable {
 				task.cancel()

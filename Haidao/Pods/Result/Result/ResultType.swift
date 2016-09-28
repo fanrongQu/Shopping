@@ -1,9 +1,9 @@
 //  Copyright (c) 2015 Rob Rix. All rights reserved.
 
 #if swift(>=3.0)
-	public typealias ResultErrorType = ErrorProtocol
+	public typealias ResultErrorType = Error
 #else
-	public typealias ResultErrorType = ErrorType
+	public typealias ResultErrorType = ErrorProtocol
 #endif
 
 /// A type that can represent either failure with an error or success with a result value.
@@ -20,7 +20,7 @@ public protocol ResultType {
 	/// Case analysis for ResultType.
 	///
 	/// Returns the value produced by appliying `ifFailure` to the error if self represents a failure, or `ifSuccess` to the result value if self represents a success.
-	func analysis<U>(@noescape ifSuccess ifSuccess: Value -> U, @noescape ifFailure: Error -> U) -> U
+	func analysis<U>(ifSuccess: (Value) -> U, ifFailure: (Error) -> U) -> U
 
 	/// Returns the value if self represents a success, `nil` otherwise.
 	///
@@ -46,26 +46,26 @@ public extension ResultType {
 	}
 
 	/// Returns a new Result by mapping `Success`es’ values using `transform`, or re-wrapping `Failure`s’ errors.
-	public func map<U>(@noescape transform: Value -> U) -> Result<U, Error> {
-		return flatMap { .Success(transform($0)) }
+	public func map<U>(_ transform: @escaping @escaping (Value) -> U) -> Result<U, Error> {
+		return flatMap { .success(transform($0)) }
 	}
 
 	/// Returns the result of applying `transform` to `Success`es’ values, or re-wrapping `Failure`’s errors.
-	public func flatMap<U>(@noescape transform: Value -> Result<U, Error>) -> Result<U, Error> {
+	public func flatMap<U>(_ transform: (Value) -> Result<U, Error>) -> Result<U, Error> {
 		return analysis(
 			ifSuccess: transform,
-			ifFailure: Result<U, Error>.Failure)
+			ifFailure: Result<U, Error>.failure)
 	}
 	
 	/// Returns a new Result by mapping `Failure`'s values using `transform`, or re-wrapping `Success`es’ values.
-	public func mapError<Error2>(@noescape transform: Error -> Error2) -> Result<Value, Error2> {
-		return flatMapError { .Failure(transform($0)) }
+	public func mapError<Error2>(_ transform: @escaping @escaping (Error) -> Error2) -> Result<Value, Error2> {
+		return flatMapError { .failure(transform($0)) }
 	}
 	
 	/// Returns the result of applying `transform` to `Failure`’s errors, or re-wrapping `Success`es’ values.
-	public func flatMapError<Error2>(@noescape transform: Error -> Result<Value, Error2>) -> Result<Value, Error2> {
+	public func flatMapError<Error2>(_ transform: (Error) -> Result<Value, Error2>) -> Result<Value, Error2> {
 		return analysis(
-			ifSuccess: Result<Value, Error2>.Success,
+			ifSuccess: Result<Value, Error2>.success,
 			ifFailure: transform)
 	}
 }
@@ -73,21 +73,21 @@ public extension ResultType {
 /// Protocol used to constrain `tryMap` to `Result`s with compatible `Error`s.
 public protocol ErrorTypeConvertible: ResultErrorType {
 	associatedtype ConvertibleType = Self
-	static func errorFromErrorType(error: ResultErrorType) -> Self
+	static func errorFromErrorType(_ error: ResultErrorType) -> Self
 }
 
 public extension ResultType where Error: ErrorTypeConvertible {
 
 	/// Returns the result of applying `transform` to `Success`es’ values, or wrapping thrown errors.
-	public func tryMap<U>(@noescape transform: Value throws -> U) -> Result<U, Error> {
+	public func tryMap<U>(_ transform: (Value) throws -> U) -> Result<U, Error> {
 		return flatMap { value in
 			do {
-				return .Success(try transform(value))
+				return .success(try transform(value))
 			}
 			catch {
 				let convertedError = Error.errorFromErrorType(error)// as! Error, not deleting it as things might change
 				// Revisit this in a future version of Swift. https://twitter.com/jckarter/status/672931114944696321
-				return .Failure(convertedError)
+				return .failure(convertedError)
 			}
 		}
 	}
@@ -104,6 +104,6 @@ infix operator &&& {
 }
 
 /// Returns a Result with a tuple of `left` and `right` values if both are `Success`es, or re-wrapping the error of the earlier `Failure`.
-public func &&& <L: ResultType, R: ResultType where L.Error == R.Error> (left: L, @autoclosure right: () -> R) -> Result<(L.Value, R.Value), L.Error> {
+public func &&& <L: ResultType, R: ResultType> (left: L, right: @autoclosure () -> R) -> Result<(L.Value, R.Value), L.Error> where L.Error == R.Error {
 	return left.flatMap { left in right().map { right in (left, right) } }
 }

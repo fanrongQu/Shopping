@@ -19,9 +19,9 @@ public protocol PropertyType {
 /// A read-only property that allows observation of its changes.
 public struct AnyProperty<Value>: PropertyType {
 
-	private let _value: () -> Value
-	private let _producer: () -> SignalProducer<Value, NoError>
-	private let _signal: () -> Signal<Value, NoError>
+	fileprivate let _value: () -> Value
+	fileprivate let _producer: () -> SignalProducer<Value, NoError>
+	fileprivate let _signal: () -> Signal<Value, NoError>
 
 
 	public var value: Value {
@@ -37,7 +37,7 @@ public struct AnyProperty<Value>: PropertyType {
 	}
 	
 	/// Initializes a property as a read-only view of the given property.
-	public init<P: PropertyType where P.Value == Value>(_ property: P) {
+	public init<P: PropertyType>(_ property: P) where P.Value == Value {
 		_value = { property.value }
 		_producer = { property.producer }
 		_signal = { property.signal }
@@ -88,13 +88,13 @@ public protocol MutablePropertyType: class, PropertyType {
 /// Instances of this class are thread-safe.
 public final class MutableProperty<Value>: MutablePropertyType {
 
-	private let observer: Signal<Value, NoError>.Observer
+	fileprivate let observer: Signal<Value, NoError>.Observer
 
 	/// Need a recursive lock around `value` to allow recursive access to
 	/// `value`. Note that recursive sets will still deadlock because the
 	/// underlying producer prevents sending recursive events.
-	private let lock: NSRecursiveLock
-	private var _value: Value
+	fileprivate let lock: NSRecursiveLock
+	fileprivate var _value: Value
 
 	/// The current value of the property.
 	///
@@ -139,14 +139,14 @@ public final class MutableProperty<Value>: MutablePropertyType {
 	/// Atomically replaces the contents of the variable.
 	///
 	/// Returns the old value.
-	public func swap(newValue: Value) -> Value {
+	public func swap(_ newValue: Value) -> Value {
 		return modify { _ in newValue }
 	}
 
 	/// Atomically modifies the variable.
 	///
 	/// Returns the old value.
-	public func modify(@noescape action: (Value) throws -> Value) rethrows -> Value {
+	public func modify(action: (Value) throws -> Value) rethrows -> Value {
 		lock.lock()
 		defer { lock.unlock() }
 
@@ -160,7 +160,7 @@ public final class MutableProperty<Value>: MutablePropertyType {
 	/// variable.
 	///
 	/// Returns the result of the action.
-	public func withValue<Result>(@noescape action: (Value) throws -> Result) rethrows -> Result {
+	public func withValue<Result>(action: (Value) throws -> Result) rethrows -> Result {
 		lock.lock()
 		defer { lock.unlock() }
 
@@ -181,16 +181,16 @@ public final class MutableProperty<Value>: MutablePropertyType {
 @objc public final class DynamicProperty: RACDynamicPropertySuperclass, MutablePropertyType {
 	public typealias Value = AnyObject?
 
-	private weak var object: NSObject?
-	private let keyPath: String
+	fileprivate weak var object: NSObject?
+	fileprivate let keyPath: String
 
-	private var property: MutableProperty<AnyObject?>?
+	fileprivate var property: MutableProperty<AnyObject?>?
 
 	/// The current value of the property, as read and written using Key-Value
 	/// Coding.
 	public var value: AnyObject? {
 		@objc(rac_value) get {
-			return object?.valueForKeyPath(keyPath)
+			return object?.value(forKeyPath: keyPath) as AnyObject?
 		}
 
 		@objc(setRac_value:) set(newValue) {
@@ -223,15 +223,15 @@ public final class MutableProperty<Value>: MutablePropertyType {
 		/// This is made possible by strong reference cycles.
 		super.init()
 
-		object?.rac_valuesForKeyPath(keyPath, observer: nil)?
+		object?.rac_values(forKeyPath: keyPath, observer: nil)?
 			.toSignalProducer()
 			.start { event in
 				switch event {
-				case let .Next(newValue):
+				case let .next(newValue):
 					self.property?.value = newValue
-				case let .Failed(error):
+				case let .failed(error):
 					fatalError("Received unexpected error from KVO signal: \(error)")
-				case .Interrupted, .Completed:
+				case .interrupted, .completed:
 					self.property = nil
 				}
 			}
@@ -258,9 +258,9 @@ public func <~ <P: MutablePropertyType>(property: P, signal: Signal<P.Value, NoE
 
 	disposable += signal.observe { [weak property] event in
 		switch event {
-		case let .Next(value):
+		case let .next(value):
 			property?.value = value
-		case .Completed:
+		case .completed:
 			disposable.dispose()
 		default:
 			break
@@ -297,6 +297,6 @@ public func <~ <P: MutablePropertyType>(property: P, producer: SignalProducer<P.
 ///
 /// The binding will automatically terminate when either property is
 /// deinitialized.
-public func <~ <Destination: MutablePropertyType, Source: PropertyType where Source.Value == Destination.Value>(destinationProperty: Destination, sourceProperty: Source) -> Disposable {
+public func <~ <Destination: MutablePropertyType, Source: PropertyType>(destinationProperty: Destination, sourceProperty: Source) -> Disposable where Source.Value == Destination.Value {
 	return destinationProperty <~ sourceProperty.producer
 }

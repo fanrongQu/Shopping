@@ -8,50 +8,50 @@
 
 /// An Observer is a simple wrapper around a function which can receive Events
 /// (typically from a Signal).
-public struct Observer<Value, Error: ErrorType> {
-	public typealias Action = Event<Value, Error> -> ()
+public struct Observer<Value, Error: Error> {
+	public typealias Action = (Event<Value, Error>) -> ()
 
 	public let action: Action
 
-	public init(_ action: Action) {
+	public init(_ action: @escaping Action) {
 		self.action = action
 	}
 
-	public init(failed: (Error -> ())? = nil, completed: (() -> ())? = nil, interrupted: (() -> ())? = nil, next: (Value -> ())? = nil) {
+	public init(failed: ((Error) -> ())? = nil, completed: (() -> ())? = nil, interrupted: (() -> ())? = nil, next: ((Value) -> ())? = nil) {
 		self.init { event in
 			switch event {
-			case let .Next(value):
+			case let .next(value):
 				next?(value)
 
-			case let .Failed(error):
+			case let .failed(error):
 				failed?(error)
 
-			case .Completed:
+			case .completed:
 				completed?()
 
-			case .Interrupted:
+			case .interrupted:
 				interrupted?()
 			}
 		}
 	}
 
 	/// Puts a `Next` event into the given observer.
-	public func sendNext(value: Value) {
-		action(.Next(value))
+	public func sendNext(_ value: Value) {
+		action(.next(value))
 	}
 
 	/// Puts an `Failed` event into the given observer.
-	public func sendFailed(error: Error) {
-		action(.Failed(error))
+	public func sendFailed(_ error: Error) {
+		action(.failed(error))
 	}
 
 	/// Puts a `Completed` event into the given observer.
 	public func sendCompleted() {
-		action(.Completed)
+		action(.completed)
 	}
 
 	/// Puts a `Interrupted` event into the given observer.
 	public func sendInterrupted() {
-		action(.Interrupted)
+		action(.interrupted)
 	}
 }
